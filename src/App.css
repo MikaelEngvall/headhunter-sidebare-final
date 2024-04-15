@@ -192,7 +192,7 @@ span {
 }
 
 .toggle-switch input[type="checkbox"]:checked+label {
-  background-color: #1c1f1c;
+  background-color: #000;
   /* Change this color to match your theme */
 }
 
