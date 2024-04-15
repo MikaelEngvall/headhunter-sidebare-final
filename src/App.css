@@ -178,6 +178,7 @@ span {
   cursor: pointer;
 }
 
+/* Adjusted colors for the toggle switch */
 .toggle-switch label:before {
   content: '';
   position: absolute;
@@ -191,10 +192,12 @@ span {
 }
 
 .toggle-switch input[type="checkbox"]:checked+label {
-  background-color: #2196F3;
+  background-color: #1c1f1c;
   /* Change this color to match your theme */
 }
 
 .toggle-switch input[type="checkbox"]:checked+label:before {
+  background-color: #fff;
+  /* Change this color to match your theme */
   left: calc(100% - 16px);
 }
