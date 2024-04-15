@@ -130,15 +130,6 @@ span {
   transition: 0.3s;
 }
 
-.toggle-switch input[type="checkbox"]:checked+label {
-  background-color: #2196F3;
-  /* Change this color to match your theme */
-}
-
-.toggle-switch input[type="checkbox"]:checked+label:before {
-  left: calc(100% - 16px);
-}
-
 .auth-icons {
   display: flex;
   align-items: center;
@@ -150,7 +141,7 @@ span {
 
 .auth-icon,
 .toggle-switch {
-  font-size: 1.5rem;
+  font-size: 2rem;
   /* Adjust the font size as needed */
   color: #000;
   /* Change the color as needed */
@@ -161,7 +152,6 @@ span {
 
 .auth-icon:hover {
   color: #555;
-  /* Change the hover color as needed */
 }
 
 .toggle-switch input[type="checkbox"] {
@@ -172,13 +162,13 @@ span {
   display: inline-block;
   width: 30px;
   height: 20px;
-  background-color: #ccc;
+  background-color: #000;
   border-radius: 10px;
   position: relative;
   cursor: pointer;
 }
 
-/* Adjusted colors for the toggle switch */
+
 .toggle-switch label:before {
   content: '';
   position: absolute;
@@ -192,12 +182,11 @@ span {
 }
 
 .toggle-switch input[type="checkbox"]:checked+label {
-  background-color: #000;
-  /* Change this color to match your theme */
+  background-color: #ccc;
+
 }
 
 .toggle-switch input[type="checkbox"]:checked+label:before {
   background-color: #fff;
-  /* Change this color to match your theme */
   left: calc(100% - 16px);
 }
