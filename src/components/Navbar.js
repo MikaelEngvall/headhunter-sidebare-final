@@ -23,14 +23,24 @@ function Navbar() {
                     <Link to="#" className='menu-bars'>
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
-                    <div className="toggle-switch">
-                        <input
-                            type="checkbox"
-                            id="darkModeToggle"
-                            checked={darkMode}
-                            onChange={toggleDarkMode}
-                        />
-                        <label htmlFor="darkModeToggle" />
+                    <div className="auth-icons">
+                        <div className="toggle-switch">
+                            <input
+                                type="checkbox"
+                                id="darkModeToggle"
+                                checked={darkMode}
+                                onChange={toggleDarkMode}
+                            />
+                            <label htmlFor="darkModeToggle" />
+                        </div>
+                        <Link to="/signup" className="auth-icon">
+                            {/* Replace with your signup icon */}
+                            <FaIcons.FaUserPlus />
+                        </Link>
+                        <Link to="/login" className="auth-icon">
+                            {/* Replace with your login icon */}
+                            <FaIcons.FaSignInAlt />
+                        </Link>
                     </div>
                 </div>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
