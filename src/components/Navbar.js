@@ -5,6 +5,8 @@ import '../App.css';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
+
+
 function Navbar() {
     const [darkMode, setDarkMode] = useState(false);
     const [sidebar, setSidebar] = useState(false);
@@ -13,13 +15,17 @@ function Navbar() {
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
-        // Additional logic to toggle dark mode theme
+        const root = document.documentElement;
+        root.style.setProperty('--bg-color-light', darkMode ? '#f2f2f2' : '#333333');
+        root.style.setProperty('--text-color-light', darkMode ? '#333333' : '#f2f2f2');
+        root.style.setProperty('--bg-color-dark', darkMode ? '#333333' : '#f2f2f2');
+        root.style.setProperty('--text-color-dark', darkMode ? '#f2f2f2' : '#333333');
     };
 
     return (
         <>
             <IconContext.Provider value={{ color: 'undefined' }}>
-                <div className="navbar">
+                <div className={`navbar ${darkMode ? 'dark' : 'light'}`}>
                     <Link to="#" className='menu-bars'>
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
@@ -29,16 +35,14 @@ function Navbar() {
                                 type="checkbox"
                                 id="darkModeToggle"
                                 checked={darkMode}
-                                onChange={toggleDarkMode}
+                                onChange={() => { }} // Remove onChange event
                             />
-                            <label htmlFor="darkModeToggle" />
+                            <label htmlFor="darkModeToggle" className={darkMode ? 'toggle-switch dark-mode' : 'toggle-switch'} onClick={toggleDarkMode} /> {/* Use onClick to toggle dark mode */}
                         </div>
                         <Link to="/signup" className="auth-icon">
-                            {/* Replace with your signup icon */}
                             <FaIcons.FaUserPlus />
                         </Link>
                         <Link to="/login" className="auth-icon">
-                            {/* Replace with your login icon */}
                             <FaIcons.FaSignInAlt />
                         </Link>
                     </div>
