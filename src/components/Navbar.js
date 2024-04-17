@@ -35,7 +35,6 @@ function Navbar() {
                                 type="checkbox"
                                 id="darkModeToggle"
                                 checked={darkMode}
-                                onChange={() => { }} // Remove onChange event
                             />
                             <label htmlFor="darkModeToggle" className={darkMode ? 'toggle-switch dark-mode' : 'toggle-switch'} onClick={toggleDarkMode} /> {/* Use onClick to toggle dark mode */}
                         </div>
