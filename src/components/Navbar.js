@@ -16,10 +16,10 @@ function Navbar() {
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
         const root = document.documentElement;
-        root.style.setProperty('--bg-color-light', darkMode ? '#f2f2f2' : '#333333');
+        root.style.setProperty('--bg-color-light', darkMode ? '#F3EBF6' : '#333333');
         root.style.setProperty('--text-color-light', darkMode ? '#333333' : '#f2f2f2');
-        root.style.setProperty('--bg-color-dark', darkMode ? '#cfc6c1' : '#777777');
-        root.style.setProperty('--text-color-dark', darkMode ? '#f2f2f2' : '#333333');
+        root.style.setProperty('--bg-color-dark', darkMode ? '#c2bcc4' : '#777777');
+        root.style.setProperty('--text-color-dark', darkMode ? '#484649' : '#333333');
     };
 
     return (
