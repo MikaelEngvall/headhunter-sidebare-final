@@ -8,7 +8,7 @@ import { IconContext } from 'react-icons';
 
 
 function Navbar() {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
