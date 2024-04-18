@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as FaIcons from 'react-icons/fa';
 
 
 function Signup() {
@@ -41,8 +42,10 @@ function Signup() {
                 <form>
                     <div className='form-group'>
                         <label htmlFor='email'>Email:</label>
-                        <input type='email' id='email' name='email' value={email} onChange={handleEmailChange} required />
-                        {emailValid && <i className='fas fa-check'></i>}
+                        <div className='input-with-icon'>
+                            <input type='email' id='email' name='email' value={email} onChange={handleEmailChange} required />
+                            {emailValid && <FaIcons.FaCheck className='check-icon' />}
+                        </div>
                     </div>
                     <div className='form-group'>
                         <label htmlFor='username'>Username:</label>
@@ -50,8 +53,10 @@ function Signup() {
                     </div>
                     <div className='form-group'>
                         <label htmlFor='password'>Password:</label>
-                        <input type='password' id='password' name='password' value={password} onChange={handlePasswordChange} required />
-                        {passwordValid && <i className='fas fa-check'></i>}
+                        <div className='input-with-icon'>
+                            <input type='password' id='password' name='password' value={password} onChange={handlePasswordChange} required />
+                            {passwordValid && <FaIcons.FaCheck className='check-icon' />}
+                        </div>
                     </div>
                     <button type='submit'>Sign Up</button>
                 </form>
