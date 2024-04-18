@@ -56,15 +56,17 @@
 
 .nav-menu {
   background-color: var(--bg-color-light);
-  color: #555;
+  color: var(--text-color-light);
   width: 250px;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   position: fixed;
   top: 0;
   left: -100%;
   transition: 850ms;
+  font-size: 2rem;
 }
 
 .nav-menu.active {
@@ -92,6 +94,7 @@
   align-items: center;
   padding: 0 16px;
   border-radius: 4px;
+  font-size: 2rem;
 }
 
 .nav-text a:hover {
@@ -101,6 +104,7 @@
 
 .nav-menu-items {
   width: 100%;
+  font-size: inherit;
 }
 
 .navbar-toggle {
@@ -174,4 +178,119 @@ span {
 .toggle-switch input[type="checkbox"]:checked+label:before {
   background-color: #fff;
   left: calc(100% - 16px);
+}
+
+/* Login CSS */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-color-dark);
+  /* Maintain the page's background color */
+}
+
+.login-card {
+  background-color: var(--bg-color-dark);
+  /* Changed background color */
+  color: var(--text-color-light);
+  /* Changed text color */
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Signup CSS */
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-color-dark);
+}
+
+.signup-card {
+  background-color: var(--bg-color-dark);
+  /* Changed background color */
+  color: var(--text-color-light);
+  /* Changed text color */
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.signup-card h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--bg-color-light);
+  /* Changed background color */
+  color: var(--text-color-dark);
+  /* Changed text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--bg-color-light);
+  /* Changed background color */
+  color: var(--text-color-dark);
+  /* Changed text color */
 }

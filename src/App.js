@@ -20,8 +20,8 @@ function App() {
           <Route path="/admin" component={Admin} />
           <Route path="/ads" component={Ads} />
           <Route path="/logout" component={Logout} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={Login} />
+          <Route path="/signup" element={Signup} />
         </Routes>
       </Router>
     </>
