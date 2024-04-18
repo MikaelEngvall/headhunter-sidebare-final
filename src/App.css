@@ -19,6 +19,8 @@
 .account,
 .admin,
 .ads,
+.login,
+.signup,
 .logout {
   display: flex;
   height: 90vh;

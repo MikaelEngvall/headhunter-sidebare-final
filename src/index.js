@@ -13,6 +13,8 @@ import Account from "./routes/Account";
 import Admin from "./routes/Admin";
 import Ads from "./routes/Ads";
 import Logout from "./routes/Logout";
+import Login from "./routes/Login";
+import Signup from "./routes/Signup";
 import Navbar from "./components/Navbar";
 import "./App.css";
 
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
       {
         path: "logout",
         element: <Logout />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
       },
     ],
   },
