@@ -1,6 +1,7 @@
 import React from 'react'
 
-function Account() {
+function Account({ isAuthorized }) {
+    console.log(isAuthorized);
     return (
         <div className='account'>
             <div className='account-card'>

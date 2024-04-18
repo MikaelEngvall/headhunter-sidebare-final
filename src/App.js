@@ -10,17 +10,18 @@ import Ads from './routes/Ads';
 import Logout from './routes/Logout';
 
 function App() {
+  const [isAuthorized, setIsAuthorized] = useState(false);
   return (
     <>
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" exact component={Home} />
-          <Route path="/account" component={Account} />
+          <Route path="/account" element={<Account isAuthorized={isAuthorized} />} />
           <Route path="/admin" component={Admin} />
           <Route path="/ads" component={Ads} />
           <Route path="/logout" component={Logout} />
-          <Route path="/login" element={Login} />
+          <Route path="/login" element={<Login setIsAuthorized={setIsAuthorized} />} />
           <Route path="/signup" element={Signup} />
         </Routes>
       </Router>
