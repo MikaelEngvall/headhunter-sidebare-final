@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:8080/api/v1/users/login";
 
-function Login({ setIsAuthorized }) {
+function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -25,7 +25,6 @@ function Login({ setIsAuthorized }) {
                 }
             );
             handleAuthentication(response.data.data.token);
-            setIsAuthorized(true);
         } catch (error) {
             console.error("Error logging in", error);
             // Handle errors more gracefully, e.g., display error message

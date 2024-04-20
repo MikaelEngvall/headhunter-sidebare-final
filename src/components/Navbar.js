@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import '../App.css';
@@ -6,10 +6,20 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 
-
 function Navbar() {
     const [darkMode, setDarkMode] = useState(true);
     const [sidebar, setSidebar] = useState(false);
+    const [authenticated, setAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem("headhunter-token");
+        setAuthenticated(!!token);
+        handleAuthentication(token);
+    }, [authenticated]);
+
+    const handleAuthentication = (token) => {
+        setAuthenticated(!!token); // Update authentication state based on token presence
+    };
 
     const showSidebar = () => setSidebar(!sidebar);
 
@@ -56,7 +66,8 @@ function Navbar() {
                         </li>
                         {SidebarData.map((item, index) => (
                             <li key={index} className={item.cName}>
-                                <Link to={item.path}>
+                                {/* Conditionally render based on authentication state */}
+                                <Link to={item.path} className={!authenticated && (item.path === '/admin' || item.path === '/account' || item.path === '/ads') ? 'inactive' : ''}>
                                     {item.icon}
                                     <span>{item.title}</span>
                                 </Link>
