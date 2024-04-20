@@ -4,10 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:8080/api/v1/users/login";
 
-function utf8_to_b64(str) {
-    return window.btoa(unescape(encodeURIComponent(str)));
-}
-
 function Login({ setIsAuthorized }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,7 +11,7 @@ function Login({ setIsAuthorized }) {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const basicAuth = utf8_to_b64(`${email}:${password}`);
+        const basicAuth = btoa(`${email}:${password}`);
 
         try {
             const response = await axios.post(
