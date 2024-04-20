@@ -35,8 +35,9 @@ function Navbar() {
                                 type="checkbox"
                                 id="darkModeToggle"
                                 checked={darkMode}
+                                onChange={toggleDarkMode}
                             />
-                            <label htmlFor="darkModeToggle" className={darkMode ? 'toggle-switch dark-mode' : 'toggle-switch'} onClick={toggleDarkMode} /> {/* Use onClick to toggle dark mode */}
+                            <label htmlFor="darkModeToggle" className="toggle-switch" />
                         </div>
                         <Link to="/signup" className="auth-icon">
                             <FaIcons.FaUserPlus />
