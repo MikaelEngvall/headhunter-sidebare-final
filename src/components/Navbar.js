@@ -7,11 +7,10 @@ import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 
 
-function Navbar() {
+function Navbar({ isAuthorized }) {
     const [darkMode, setDarkMode] = useState(true);
     const [sidebar, setSidebar] = useState(false);
-
-    const showSidebar = () => setSidebar(!sidebar);
+    const [glowIcons, setGlowIcons] = useState(!isAuthorized); // Initially glow if not authorized
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
@@ -22,6 +21,17 @@ function Navbar() {
         root.style.setProperty('--text-color-dark', darkMode ? '#484649' : '#333333');
     };
 
+    const showSidebar = () => {
+        if (isAuthorized) {
+            setSidebar(!sidebar); // Show sidebar if authorized
+        } else {
+            setGlowIcons(true); // Glow icons if not authorized
+            setTimeout(() => setGlowIcons(false), 1000); // Remove glow after 1 second
+        }
+    };
+    console.log("Sidebar ", sidebar);
+    console.log("GlowIcons ", glowIcons);
+    console.log("Authorized ", isAuthorized);
     return (
         <>
             <IconContext.Provider value={{ color: 'undefined' }}>
@@ -29,7 +39,7 @@ function Navbar() {
                     <Link to="#" className='menu-bars'>
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
-                    <div className="auth-icons">
+                    <div className={`auth-icons ${glowIcons ? 'glow' : ''}`}>
                         <div className="toggle-switch">
                             <input
                                 type="checkbox"
@@ -37,12 +47,12 @@ function Navbar() {
                                 checked={darkMode}
                                 onChange={toggleDarkMode}
                             />
-                            <label htmlFor="darkModeToggle" className="toggle-switch" />
+                            <label htmlFor="darkModeToggle" className={darkMode ? 'toggle-switch dark-mode' : 'toggle-switch'} onClick={toggleDarkMode} /> {/* Use onClick to toggle dark mode */}
                         </div>
-                        <Link to="/signup" className="auth-icon">
+                        <Link to="/signup" className={`auth-icon ${glowIcons ? 'glow' : ''}`}>
                             <FaIcons.FaUserPlus />
                         </Link>
-                        <Link to="/login" className="auth-icon">
+                        <Link to="/login" className={`auth-icon ${glowIcons ? 'glow' : ''}`}>
                             <FaIcons.FaSignInAlt />
                         </Link>
                     </div>

@@ -15,6 +15,21 @@
   font-family: 'Lato', sans-serif;
 }
 
+.auth-icons.glow .auth-icon {
+  animation: glow-animation 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow-animation {
+  0% {
+    color: var(--text-color-light);
+  }
+
+  100% {
+    color: #ff9800;
+    /* Change the glow color as needed */
+  }
+}
+
 .home,
 .account,
 .admin,
