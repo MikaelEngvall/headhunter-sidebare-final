@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+const API_URL = "http://localhost:8080/api/v1/users/login";
+
 function utf8_to_b64(str) {
     return window.btoa(unescape(encodeURIComponent(str)));
 }
@@ -9,23 +11,16 @@ function utf8_to_b64(str) {
 function Login({ setIsAuthorized }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [loginError, setLoginError] = useState(false);
-
     const navigate = useNavigate();
 
-    async function handleLogin(e) {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        const url = "http://localhost:8080/api/v1/users/login";
-
         const basicAuth = utf8_to_b64(`${email}:${password}`);
 
         try {
             const response = await axios.post(
-                url,
-                {
-                    email: email,
-                    password: password,
-                },
+                API_URL,
+                { email, password },
                 {
                     headers: {
                         Authorization: `Basic ${basicAuth}`,
@@ -33,16 +28,15 @@ function Login({ setIsAuthorized }) {
                     },
                 }
             );
-            console.log("User Log In Success");
             handleAuthentication(response.data.data.token);
             setIsAuthorized(true);
         } catch (error) {
             console.error("Error logging in", error);
-            setLoginError(true);
+            // Handle errors more gracefully, e.g., display error message
         }
     }
 
-    function handleAuthentication(token) {
+    const handleAuthentication = (token) => {
         localStorage.setItem("headhunter-token", token);
         navigate("/account");
     }
