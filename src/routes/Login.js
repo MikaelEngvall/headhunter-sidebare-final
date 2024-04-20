@@ -34,6 +34,7 @@ function Login() {
     const handleAuthentication = (token) => {
         localStorage.setItem("headhunter-token", token);
         navigate("/account");
+        window.location.reload(); // Reloads the page since I haven't figured out how to re-render the sidebar in real time yet!!! TODO
     }
 
     return (
