@@ -15,6 +15,16 @@ function Navbar() {
         const token = localStorage.getItem("headhunter-token");
         setAuthenticated(!!token);
         handleAuthentication(token);
+
+        // Retrieve theme preference from local storage
+        const themePreference = localStorage.getItem("theme");
+        if (themePreference === "dark") {
+            setDarkMode(true);
+            applyDarkModeStyles();
+        } else {
+            setDarkMode(false);
+            applyLightModeStyles();
+        }
     }, [authenticated]);
 
     const handleAuthentication = (token) => {
@@ -24,12 +34,31 @@ function Navbar() {
     const showSidebar = () => setSidebar(!sidebar);
 
     const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
+        const newDarkMode = !darkMode;
+        setDarkMode(newDarkMode);
+        // Store theme preference in local storage
+        localStorage.setItem("theme", newDarkMode ? "dark" : "light");
+        if (newDarkMode) {
+            applyDarkModeStyles();
+        } else {
+            applyLightModeStyles();
+        }
+    };
+
+    const applyDarkModeStyles = () => {
         const root = document.documentElement;
-        root.style.setProperty('--bg-color-light', darkMode ? '#F3EBF6' : '#333333');
-        root.style.setProperty('--text-color-light', darkMode ? '#333333' : '#f2f2f2');
-        root.style.setProperty('--bg-color-dark', darkMode ? '#c2bcc4' : '#777777');
-        root.style.setProperty('--text-color-dark', darkMode ? '#484649' : '#333333');
+        root.style.setProperty('--bg-color-light', '#F3EBF6');
+        root.style.setProperty('--text-color-light', '#333333');
+        root.style.setProperty('--bg-color-dark', '#c2bcc4');
+        root.style.setProperty('--text-color-dark', '#484649');
+    };
+
+    const applyLightModeStyles = () => {
+        const root = document.documentElement;
+        root.style.setProperty('--bg-color-light', '#333333');
+        root.style.setProperty('--text-color-light', '#f2f2f2');
+        root.style.setProperty('--bg-color-dark', '#777777');
+        root.style.setProperty('--text-color-dark', '#333333');
     };
 
     return (

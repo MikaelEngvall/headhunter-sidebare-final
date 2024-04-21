@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,6 +8,17 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Retrieve theme preference from local storage
+        const themePreference = localStorage.getItem("theme");
+        // Apply theme preference if available
+        if (themePreference === "dark") {
+            // Apply dark mode styles
+        } else {
+            // Apply light mode styles
+        }
+    }, []); // Empty dependency array ensures this effect runs only once when the component mounts
 
     const handleLogin = async (e) => {
         e.preventDefault();
