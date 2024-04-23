@@ -5,13 +5,13 @@ import '../App.css';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
-import { extractRolesFromToken } from '../functions/extractFromToken'; // Import the function to extract roles from the token
+import { extractRolesFromToken } from '../functions/extractFromToken';
 
 function Navbar() {
     const [darkMode, setDarkMode] = useState(true);
     const [sidebar, setSidebar] = useState(false);
     const [authenticated, setAuthenticated] = useState(false);
-    const userRoles = extractRolesFromToken(); // Extract roles from the token using the function
+    const userRoles = extractRolesFromToken(); // Extract roles from the token using the function for access to admin
 
     useEffect(() => {
         const token = localStorage.getItem("headhunter-token");
