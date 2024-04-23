@@ -5,11 +5,13 @@ import '../App.css';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
+import { extractRolesFromToken } from '../functions/extractFromToken'; // Import the function to extract roles from the token
 
 function Navbar() {
     const [darkMode, setDarkMode] = useState(true);
     const [sidebar, setSidebar] = useState(false);
     const [authenticated, setAuthenticated] = useState(false);
+    const userRoles = extractRolesFromToken(); // Extract roles from the token using the function
 
     useEffect(() => {
         const token = localStorage.getItem("headhunter-token");
@@ -96,7 +98,7 @@ function Navbar() {
                         {SidebarData.map((item, index) => (
                             <li key={index} className={item.cName}>
                                 {/* Conditionally render based on authentication state */}
-                                <Link to={item.path} className={!authenticated && (item.path === '/admin' || item.path === '/account' || item.path === '/ads') ? 'inactive' : ''}>
+                                <Link to={item.path} className={!authenticated && (item.path === '/account' || item.path === '/ads') ? 'inactive' : (item.path === '/admin' && !userRoles.includes('admin')) ? 'inactive' : ''}>
                                     {item.icon}
                                     <span>{item.title}</span>
                                 </Link>
