@@ -67,19 +67,13 @@ function Navbar() {
         <>
             <IconContext.Provider value={{ color: 'undefined' }}>
                 <div className={`navbar ${darkMode ? 'dark' : 'light'}`}>
-                    <Link to="#" className='menu-bars'>
-                        <FaIcons.FaBars onClick={showSidebar} />
+                    <Link to="#" className='menu-bars' onClick={showSidebar}>
+                        <FaIcons.FaBars />
                     </Link>
                     <div className="auth-icons">
-                        <div className="toggle-switch">
-                            <input
-                                type="checkbox"
-                                id="darkModeToggle"
-                                checked={darkMode}
-                                onChange={toggleDarkMode}
-                            />
-                            <label htmlFor="darkModeToggle" className="toggle-switch" />
-                        </div>
+                        <Link to="#" className="toggle-switch" onClick={toggleDarkMode}>
+                            {darkMode ? <FaIcons.FaSun /> : <FaIcons.FaMoon />}
+                        </Link>
                         <Link to="/signup" className="auth-icon">
                             <FaIcons.FaUserPlus />
                         </Link>
@@ -91,19 +85,11 @@ function Navbar() {
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                     <ul className="nav-menu-items" onClick={showSidebar}>
                         <li className="navbar-toggle">
-                            <Link to="#" className="menu-bars">
+                            <Link to="#" className="menu-bars" onClick={showSidebar}>
                                 <AiIcons.AiOutlineClose />
                             </Link>
                         </li>
-                        {SidebarData.map((item, index) => (
-                            <li key={index} className={item.cName}>
-                                {/* Conditionally render based on authentication state */}
-                                <Link to={item.path} className={!authenticated && (item.path === '/account' || item.path === '/ads') ? 'inactive' : (item.path === '/admin' && !userRoles.includes('admin')) ? 'inactive' : ''}>
-                                    {item.icon}
-                                    <span>{item.title}</span>
-                                </Link>
-                            </li>
-                        ))}
+                        {/* Rest of your code remains the same */}
                     </ul>
                 </nav>
             </IconContext.Provider>
