@@ -72,7 +72,7 @@ function Navbar() {
                     </Link>
                     <div className="auth-icons">
                         <Link to="#" className="toggle-switch" onClick={toggleDarkMode}>
-                            {darkMode ? <FaIcons.FaSun /> : <FaIcons.FaMoon />}
+                            {darkMode ? <FaIcons.FaMoon /> : <FaIcons.FaSun />}
                         </Link>
                         <Link to="/signup" className="auth-icon">
                             <FaIcons.FaUserPlus />
