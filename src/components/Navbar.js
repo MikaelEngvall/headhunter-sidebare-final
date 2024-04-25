@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import '../App.css';
 import * as FaIcons from 'react-icons/fa';
+import * as FiIcons from 'react-icons/fi'
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { extractRolesFromToken } from '../functions/extractFromToken';
@@ -72,7 +73,7 @@ function Navbar() {
                     </Link>
                     <div className="auth-icons">
                         <Link to="#" className="toggle-switch" onClick={toggleDarkMode}>
-                            {darkMode ? <FaIcons.FaMoon /> : <FaIcons.FaSun />}
+                            {darkMode ? <FiIcons.FiSunset /> : <FiIcons.FiSunrise />}
                         </Link>
                         <Link to="/signup" className="auth-icon">
                             <FaIcons.FaUserPlus />
