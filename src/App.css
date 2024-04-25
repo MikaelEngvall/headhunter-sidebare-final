@@ -204,7 +204,7 @@ span {
 .login-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   height: 100vh;
   background-color: var(--bg-color-dark);
 }
@@ -215,6 +215,7 @@ span {
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
+  margin-top: 40px;
 }
 
 form {
@@ -256,19 +257,18 @@ button:hover {
 .signup-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   height: 100vh;
   background-color: var(--bg-color-dark);
 }
 
 .signup-card {
   background-color: var(--bg-color-dark);
-  /* Changed background color */
   color: var(--text-color-light);
-  /* Changed text color */
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
+  margin-top: 40px;
 }
 
 .signup-card h1 {
@@ -333,4 +333,95 @@ button:hover {
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
+}
+
+/* Ads Css */
+
+.ads-card {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.ads-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ads-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Adjust width as needed */
+  grid-gap: 10px;
+}
+
+.job-list {
+  /* Adjust styles for JOBS column if needed */
+}
+
+.job-list-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.job-list-container ul li {
+  /* Base styles for all jobs */
+  cursor: pointer;
+  /* Indicate clickable behavior */
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+  /* Smooth transition on hover */
+}
+
+.job-list-container ul li.active,
+.job-list-container ul li:hover {
+  /* Styles for selected and hovered jobs */
+  background-color: var(--bg-color-light);
+  /* Adjust hover color */
+  color: var(--text-color-dark);
+  /* Adjust hover text color */
+}
+
+.ad-details {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  grid-gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ad-title-format {
+  display: flex;
+  flex-direction: column;
+}
+
+.ad-format {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.ad-column {}
+
+.ad-jobs,
+.ad-instructions,
+.ads-ad-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  flex: 1;
 }
