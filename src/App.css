@@ -160,8 +160,10 @@ span {
   color: var(--text-color-light);
 }
 
-.auth-icon:hover {
+.auth-icon:hover,
+.toggle-switch:hover {
   color: #555;
+  transform: scale(1.2);
 }
 
 .toggle-switch input[type="checkbox"] {
