@@ -89,7 +89,15 @@ function Navbar() {
                                 <AiIcons.AiOutlineClose />
                             </Link>
                         </li>
-                        {/* Rest of your code remains the same */}
+                        {SidebarData.map((item, index) => (
+                            <li key={index} className={item.cName}>
+                                {/* Conditionally render based on authentication state */}
+                                <Link to={item.path} className={!authenticated && (item.path === '/account' || item.path === '/ads') ? 'inactive' : (item.path === '/admin' && !userRoles.includes('admin')) ? 'inactive' : ''}>
+                                    {item.icon}
+                                    <span>{item.title}</span>
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
             </IconContext.Provider>
