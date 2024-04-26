@@ -28,13 +28,26 @@ function Navbar() {
             setDarkMode(false);
             applyLightModeStyles();
         }
-    }, [authenticated]);
+        const handleDocumentClick = (event) => {
+            const isClickedOutside = !event.target.closest('.nav-menu'); // Check if clicked outside the sidebar
+            if (sidebar && isClickedOutside) { // Close sidebar only if it's open and clicked outside
+                setSidebar(false);
+            }
+        }
+
+        document.addEventListener('click', handleDocumentClick);
+
+        return () => document.removeEventListener('click', handleDocumentClick);
+    }, [authenticated, sidebar]);
 
     const handleAuthentication = (token) => {
         setAuthenticated(!!token); // Update authentication state based on token presence
     };
 
-    const showSidebar = () => setSidebar(!sidebar);
+    const showSidebar = (event) => {
+        event.stopPropagation(); // Prevent event bubbling
+        setSidebar(!sidebar);
+    };
 
     const toggleDarkMode = () => {
         const newDarkMode = !darkMode;
