@@ -2,6 +2,7 @@
 The backend can be found [here](https://github.com/MikaelEngvall/headhunter-backend).
 
 | ![image](https://github.com/MikaelEngvall/headhunter-sidebare-final/blob/master/public/static/images/frontend_headhunter_nostyledcomponent.png) |
+| --- |
 | *Dark mode and logged in* |
 
 ![image](https://github.com/MikaelEngvall/headhunter-sidebare-final/blob/master/public/static/images/frontend_headhunter_nostyledcomponent_lightmode_loggedout.png)
