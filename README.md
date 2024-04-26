@@ -1,4 +1,5 @@
 # Frontend without Styled Components for the Headhunter application
+The backend can be found [here](https://github.com/MikaelEngvall/headhunter-backend).
 
 ### `npm start`
 
