@@ -438,3 +438,47 @@ button:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   flex: 1;
 }
+
+.jobs-column,
+.description-column,
+.iframe-column {
+  flex: 1;
+  /* Make columns share available space equally */
+  padding: 1rem;
+  /* Add some padding for content */
+}
+
+.jobs-column {
+  border-right: 1px solid #ddd;
+  /* Separate columns with a border */
+}
+
+.description-column,
+.iframe-column {
+  /* Add specific styles for these columns if needed */
+}
+
+/* Refine job list styles if desired */
+.job-list-container ul li {
+  /* Base styles for all jobs */
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.job-list-container ul li.active,
+.job-list-container ul li:hover {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-dark);
+}
+
+/* Add styles for the iframe column (if applicable) */
+.iframe-column iframe {
+  border: none;
+  /* Remove default iframe border */
+  width: 100%;
+  /* Ensure iframe fills the column space */
+  height: 300px;
+  /* Adjust height as needed */
+}

@@ -25,7 +25,7 @@ const Ads = () => {
     return (
         <div className="ads-container">
             <div className="ads-card">
-                <div className="job-list-container">
+                <div className="jobs-column">
                     <h2>Jobs</h2>
                     <ul>
                         {jobList.map((job) => (
@@ -39,31 +39,29 @@ const Ads = () => {
                         ))}
                     </ul>
                 </div>
-                <div className="ad-actions">
-                    <i
-                        className="fa fa-plus"
-                        role="button"
-                        onClick={handleAddJob}
-                    ></i>
-                    <i
-                        className="fa fa-trash"
-                        role="button"
-                        disabled={!selectedJobId}
-                        onClick={() => handleDeleteJob(selectedJobId)}
-                    ></i>
-                </div>
-                {selectedJobId && (
-                    <div className="job-details">
-                        <h2>{jobList.find((job) => job.id === selectedJobId)?.title}</h2>
-                        <div className="ad-description">
-                            {jobList.find((job) => job.id === selectedJobId)?.description}
-                        </div>
-                        <div className="ads-ad-preview">
-                            <h2>Ad Preview</h2>
-                            {/* Add content for Ad Preview section here */}
-                        </div>
+                <div className="description-column">
+                    {selectedJobId && (
+                        <h2>
+                            {jobList.find((job) => job.id === selectedJobId)?.title}
+                        </h2>
+                    )}
+                    <div className="ad-description">
+                        {selectedJobId &&
+                            jobList.find((job) => job.id === selectedJobId)?.description}
                     </div>
-                )}
+                </div>
+                <div className="iframe-column">
+                    {selectedJobId && (
+                        <iframe
+                            srcDoc={
+                                jobList.find((job) => job.id === selectedJobId)?.adHtml
+                            }
+                            frameBorder="0"
+                            width="100%"
+                            height="300px" /* Adjust height as needed */
+                        />
+                    )}
+                </div>
             </div>
         </div>
     );
