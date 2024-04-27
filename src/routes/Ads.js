@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getAllMyJobs } from '../functions/getAllMyJobs';
-import { addJob } from '../functions/addJob';
-import { deleteJob } from '../functions/deleteJob';
 
 const Ads = () => {
     const [jobList, setJobList] = useState([]);
@@ -42,7 +40,11 @@ const Ads = () => {
                     </ul>
                 </div>
                 <div className="ad-actions">
-                    <i className="fa fa-plus" role="button" onClick={handleAddJob}></i>
+                    <i
+                        className="fa fa-plus"
+                        role="button"
+                        onClick={handleAddJob}
+                    ></i>
                     <i
                         className="fa fa-trash"
                         role="button"
