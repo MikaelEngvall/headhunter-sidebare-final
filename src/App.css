@@ -482,3 +482,50 @@ button:hover {
   height: 300px;
   /* Adjust height as needed */
 }
+
+/* CSS for Admin.js */
+.user-list {
+  margin-top: 20px;
+}
+
+.user-list table {
+  width: 100%;
+  border-collapse: collapse;
+  color: black;
+}
+
+.user-list button {
+  color: black;
+  /* Set button text color to black */
+}
+
+.user-list th,
+.user-list td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.user-list th {
+  text-align: left;
+}
+
+.user-list tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.edit-button,
+.delete-button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.edit-button {
+  background-color: #eee;
+}
+
+.delete-button {
+  background-color: #f8d7da;
+}
