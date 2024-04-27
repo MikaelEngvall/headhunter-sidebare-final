@@ -38,7 +38,13 @@ function Login() {
             handleAuthentication(response.data.data.token);
         } catch (error) {
             console.error("Error logging in", error);
-            // Handle errors more gracefully, e.g., display error message
+            // Check if the error indicates that the user does not exist or if login failed due to incorrect credentials
+            if (error.response && error.response.status === 401) {
+                // Navigate the user to the signup page
+                navigate("/signup");
+            } else {
+                // Handle other errors more gracefully, e.g., display error message
+            }
         }
     }
 

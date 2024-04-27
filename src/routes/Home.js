@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from React Router
 import { SiOpenai } from "react-icons/si";
 
 function Home() {
@@ -14,6 +15,7 @@ function Home() {
                 <h3>Welcome to my project. </h3>
                 <br></br>
                 <h4>This application will assist you in creating job advertisements.</h4>
+                <h4>Please <Link to="/signup">sign up</Link> or <Link to="/login">login</Link></h4>
             </div>
         </div >
     );

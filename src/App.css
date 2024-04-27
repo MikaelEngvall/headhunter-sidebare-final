@@ -36,7 +36,25 @@ body {
   background-color: var(--bg-color-dark);
 }
 
-.home-card,
+.home-card {
+  width: 80%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.home-card h2 {
+  margin: 0.5rem 0;
+}
+
+.home-card h3 {
+  margin: 0.75rem 0;
+}
+
+.home-card h4 {
+  margin: 1rem 0;
+}
+
+
 .account-card,
 .admin-card,
 .logout-card {
