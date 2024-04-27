@@ -108,7 +108,6 @@ function Admin() {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Roles</th>
@@ -118,7 +117,6 @@ function Admin() {
                             <tbody>
                                 {users.map((user, index) => (
                                     <tr key={user?.id}>
-                                        <td>{user?.id}</td>
                                         <td>
                                             {editedUser && editedUser.email === user.email ? (
                                                 <input
