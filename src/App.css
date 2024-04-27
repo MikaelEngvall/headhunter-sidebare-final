@@ -393,39 +393,9 @@ button:hover {
   grid-gap: 10px;
 }
 
-.job-list {
-  /* Adjust styles for JOBS column if needed */
-}
-
-.job-list-container ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.job-list-container ul li {
-  /* Base styles for all jobs */
-  cursor: pointer;
-  /* Indicate clickable behavior */
-  padding: 10px;
-  border-radius: 5px;
-  transition: background-color 0.2s ease;
-  /* Smooth transition on hover */
-}
-
-.job-list-container ul li.active,
-.job-list-container ul li:hover {
-  /* Styles for selected and hovered jobs */
-  background-color: var(--bg-color-light);
-  /* Adjust hover color */
-  color: var(--text-color-dark);
-  /* Adjust hover text color */
-}
-
 .ad-details {
   display: grid;
   grid-template-columns: 1fr;
-
   grid-gap: 10px;
   margin-bottom: 10px;
 }
@@ -471,34 +441,35 @@ button:hover {
   /* Separate columns with a border */
 }
 
-.description-column,
-.iframe-column {
-  /* Add specific styles for these columns if needed */
+/* App.css */
+
+/* Add these styles to remove list bullets */
+.job-list-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Refine job list styles if desired */
-.job-list-container ul li {
-  /* Base styles for all jobs */
+/* Adjust background color and text color on hover and click */
+.job-list-container li {
   cursor: pointer;
   padding: 10px;
   border-radius: 5px;
   transition: background-color 0.2s ease;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
 }
 
-.job-list-container ul li.active,
-.job-list-container ul li:hover {
+.job-list-container li.active,
+.job-list-container li:hover {
   background-color: var(--bg-color-light);
   color: var(--text-color-dark);
 }
 
-/* Add styles for the iframe column (if applicable) */
-.iframe-column iframe {
-  border: none;
-  /* Remove default iframe border */
-  width: 100%;
-  /* Ensure iframe fills the column space */
-  height: 300px;
-  /* Adjust height as needed */
+/* Adjust background color for dark mode and light mode */
+.job-list-container li.hovered:hover {
+  background-color: #555;
+  color: var(--text-color-light);
 }
 
 /* CSS for Admin.js */

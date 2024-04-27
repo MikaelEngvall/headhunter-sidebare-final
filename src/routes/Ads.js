@@ -4,6 +4,7 @@ import { getAllMyJobs } from '../functions/getAllMyJobs';
 const Ads = () => {
     const [jobList, setJobList] = useState([]);
     const [selectedJobId, setSelectedJobId] = useState(null);
+    const [hoveredJobId, setHoveredJobId] = useState(null);
 
     useEffect(() => {
         getAllMyJobs(setJobList);
@@ -13,13 +14,8 @@ const Ads = () => {
         setSelectedJobId(jobId);
     };
 
-    const handleAddJob = () => {
-        // Implement logic for adding a new job using addJob function
-    };
-
-    const handleDeleteJob = (jobId) => {
-        // Implement logic for deleting a job using deleteJob function
-        setJobList(jobList.filter((job) => job.id !== jobId));
+    const handleJobHover = (jobId) => {
+        setHoveredJobId(jobId);
     };
 
     return (
@@ -27,12 +23,14 @@ const Ads = () => {
             <div className="ads-card">
                 <div className="jobs-column">
                     <h2>Jobs</h2>
-                    <ul>
+                    <ul className="job-list-container">
                         {jobList.map((job) => (
                             <li
                                 key={job.id}
-                                className={selectedJobId === job.id ? 'active' : ''}
+                                className={selectedJobId === job.id ? 'active' : hoveredJobId === job.id ? 'hovered' : ''}
                                 onClick={() => handleJobClick(job.id)}
+                                onMouseEnter={() => handleJobHover(job.id)}
+                                onMouseLeave={() => handleJobHover(null)}
                             >
                                 {job.title}
                             </li>
@@ -63,7 +61,7 @@ const Ads = () => {
                     )}
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
